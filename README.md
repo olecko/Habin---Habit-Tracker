@@ -35,12 +35,12 @@ The API endpoints and their usage are documented in the routes directory:
 
 ## Project Structure
 
-   * src/: Contains the source code.
-           controllers/: Controllers for handling business logic.
-           middleware/: Middleware for authentication and error handling.
-           models/: Database models for MongoDB.
-           routes/: Express routes for API endpoints.
-           app.js: Entry point of the application.
+   * `src/`: Contains the source code.
+    * `controllers/`: Controllers for handling business logic.
+    * `middleware/`: Middleware for authentication and error handling.
+    * `models/`: Database models for MongoDB.
+    * `routes/`: Express routes for API endpoints.
+    * `app.js`: Entry point of the application.
 
 ## Configuration
 
