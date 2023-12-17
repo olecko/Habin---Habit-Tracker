@@ -23,7 +23,9 @@ Create a `.env` file based on ```.env.example``` and set the required environmen
 
 ## Run the Application:
 
-   ```npm start```
+   ```bash
+   npm start
+   ```
 
 ## Usage
 
@@ -34,11 +36,11 @@ The API endpoints and their usage are documented in the routes directory:
 ## Project Structure
 
    * src/: Contains the source code.
-           - controllers/: Controllers for handling business logic.
-           - middleware/: Middleware for authentication and error handling.
-           - models/: Database models for MongoDB.
-           - routes/: Express routes for API endpoints.
-           - app.js: Entry point of the application.
+           controllers/: Controllers for handling business logic.
+           middleware/: Middleware for authentication and error handling.
+           models/: Database models for MongoDB.
+           routes/: Express routes for API endpoints.
+           app.js: Entry point of the application.
 
 ## Configuration
 
@@ -64,4 +66,4 @@ Ensure to configure deployment settings, environment variables, and database con
 This project is licensed under the [MIT License](./LICENSE).
 
 ## Contact
-For any inquiries or support, contact Paul Emumena Michael via paulebi4eva@gmail.com.
+For any inquiries or support, contact _Paul Emumena Michael_ via [Email](paulebi4eva@gmail.com)
