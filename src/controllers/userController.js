@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
     const user = new User({
       username,
       email,
-      password: hashedPassword
+      password: hashedPassword,
     });
     await user.save();
     res.status(201).json({ message: 'User created successfully' });
@@ -51,20 +51,26 @@ const updateProfile = async (req, res) => {
     // Validate updated data using userValidationSchema
     const { error } = userValidationSchema.validate({ email, password, firstName, lastName });
     if (error) {
-      return res.status(400).json({ message: error.details[0].message });
+      return res.status(400).json({ message: error.details[0].message, status: 400 });
     }
 
     // Update relevant fields based on request
     const updatedFields = {};
     if (email) updatedFields.email = email;
-    if (password) updatedFields.password = await bcrypt.hash(password, 10);
+    if (password) updatedFields.password = await bcrypt.hash(password, 10); // Hash password
     if (firstName) updatedFields.firstName = firstName;
     if (lastName) updatedFields.lastName = lastName;
 
     await User.findByIdAndUpdate(userId, updatedFields);
     res.status(200).json({ message: 'Profile updated successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Error updating profile' });
+    console.error('Error updating profile:', error);
+    if (error.name === 'ValidationError') {
+      // Handle validation errors specifically
+      return res.status(400).json({ message: error.message, status: 400 });
+    }
+    // Handle other errors
+    return res.status(500).json({ message: 'Error updating profile', status: 500 });
   }
 };
 
@@ -85,5 +91,6 @@ module.exports = {
   registerUser,
   loginUser,
   updateProfile,
-  deleteUser
+  deleteUser,
 };
+
